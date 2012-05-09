@@ -6,9 +6,11 @@
             <name>scrum</name>
             <source-roots>
                 <root id="src.dir" name="app"/>
-                <root id="test.dir"/>
+                <root id="src.conf.dir"/>
             </source-roots>
-            <test-roots/>
+            <test-roots>
+                <root id="test.test.dir"/>
+            </test-roots>
         </data>
     </configuration>
 </project>
