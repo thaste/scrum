@@ -5,3 +5,10 @@ target
 tmp
 .history
 dist
+/nbproject/private/
+/.settings/
+/.classpath
+/.project
+/.settings
+/.idea
+/*.iml
