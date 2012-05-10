@@ -1,7 +1,19 @@
-@(message: String)
+@(message: String, taskForm: Form[Sprint])
+@implicitFieldConstructor = @{ helper.FieldConstructor(twitterBootstrapInput.render) }
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message.toUpperCase, style = "Java")
-    
+@mymain {
+
+
+
+    <div class="container">
+        <ul id="tasks"></ul>
+
+        @helper.form(action = routes.Application.addSprint(), 'class -> "well form-horizontal") {
+            @helper.inputText(taskForm("name"), '_label -> "Sprint name")
+            <div class="controls">
+                <input type="submit" class="btn btn-primary"/>
+            </div>
+        }
+    </div>
+
 }

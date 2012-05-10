@@ -1,17 +1,22 @@
 package controllers;
 
 
-import models.Sprint;
-import play.data.Form;
-import play.*;
-import play.mvc.*;
 
+import models.Sprint;
+
+import play.mvc.*;
+import play.db.ebean.Model;
+import java.util.List;
+
+import play.data.Form;
+import static play.libs.Json.toJson;
 import views.html.*;
 
 public class Application extends Controller {
   
   public static Result index() {
-    return ok(index.render("Stefaan, have a nice day"));
+
+    return ok(index.render("Stefaan",form(Sprint.class)));
   }
   
 
@@ -21,4 +26,12 @@ public class Application extends Controller {
         sprint.save();
         return redirect(routes.Application.index());
     }
+    
+    public static Result getSprints() {
+        List<Sprint> sprints = new Model.Finder(String.class, Sprint.class).all();
+        return ok(toJson(sprints));
+    }
+
 }
+
+
